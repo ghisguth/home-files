@@ -1,0 +1,17 @@
+[user]
+	name = Alexander Fedora
+	email = alexander.fedora@gmail.com
+[core]
+	autocrlf = false
+[giggle]
+	compact-mode = false
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
+[color]
+	branch = auto
+	interactive = auto
+	diff = auto
+	status = auto
+	ui = auto
+[gui]
+	spellingdictionary = ru

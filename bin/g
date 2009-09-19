@@ -1,0 +1,22 @@
+#!/bin/bash
+
+FAIL_SOUND=/usr/share/sounds/k3b_error1.wav
+SUCCESS_SOUND=/usr/share/sounds/k3b_success1.wav
+
+if [ $# -gt 0 ]; then
+    "$@"
+    EXIT_CODE=$?
+    if [ $EXIT_CODE -eq 0 ]; then
+        notify-send -i gtk-apply Success "$*" &
+        #mplayer $SUCCESS_SOUND >/dev/null 2>/dev/null  &
+        #echo "$* success" | festival --tts
+        aplay -q $SUCCESS_SOUND &
+    else
+        notify-send -i gtk-dialog-error Failure "$*" &
+        #mplayer $FAIL_SOUND >/dev/null 2>/dev/null &
+        #echo "$* failed" | festival --tts
+        aplay -q $FAIL_SOUND &
+    fi
+fi
+
+exit $EXIT_CODE
